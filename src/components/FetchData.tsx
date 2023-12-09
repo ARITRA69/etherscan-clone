@@ -50,7 +50,7 @@ const FetchData = () => {
 
     fetchData();
   }, [API_KEY]);
-  return <Header data={data} />;
+  return <></>;
 };
 
 export default FetchData;

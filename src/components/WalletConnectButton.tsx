@@ -62,6 +62,13 @@ const WalletConnectButton: React.FC = () => {
       console.error(error);
     }
   };
+
+  const disconnectWallet = () => {
+    setWeb3Provider(null);
+    setWalletAddress(null);
+    setIsCopied(false);
+  };
+
   const copyToClipboard = () => {
     if (walletAddress) {
       navigator.clipboard
@@ -90,11 +97,11 @@ const WalletConnectButton: React.FC = () => {
             <DropdownMenuTrigger>
               <Button>Connected</Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-[200px] mr-6">
+            <DropdownMenuContent className="w-[200px] lg:mr-24">
               <DropdownMenuLabel>Wallet Address</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <div className="flex items-center justify-between">
-                <p>
+                <p className="text-sm">
                   {walletAddress
                     ? `${walletAddress.substring(0, 10)}...`
                     : "Loading..."}
@@ -107,6 +114,10 @@ const WalletConnectButton: React.FC = () => {
                   )}
                 </div>
               </div>
+              <DropdownMenuSeparator />
+              <Button onClick={disconnectWallet} className="w-full">
+                Disconnect
+              </Button>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -1,7 +1,11 @@
-import WalletConnectButton from "@/components/WalletConnectButton";
+import SearchArea from "@/components/SearchArea";
 
 const Home: React.FC = () => {
-  return <main></main>;
+  return (
+    <main>
+      <SearchArea />
+    </main>
+  );
 };
 
 export default Home;
