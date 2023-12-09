@@ -34,3 +34,19 @@ export const fetchGasPrice = async () => {
     return null;
   }
 };
+
+export const fetchMarketCap = async () => {
+  try {
+    const response = await axios.get(API_BASE_URL, {
+      params: {
+        module: "stats",
+        action: "ethsupply",
+        apikey: API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching market cap: ", error);
+    return null;
+  }
+};

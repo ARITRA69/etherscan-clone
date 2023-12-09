@@ -20,10 +20,10 @@ const SearchArea = (props: Props) => {
         <h1 className="font-bold text-xl text-white">
           The Ethereum Blockchain Explorer
         </h1>
-        <div className="p-2 bg-white rounded-lg lg:w-1/2 flex justify-between gap-2">
+        <div className="p-2 bg-white dark:bg-black rounded-lg lg:w-1/2 flex justify-between gap-2">
           <Input
             placeholder="Search by Address / Txn Hash / Block"
-            className="w-full bg-white"
+            className="w-full dark:bg-black"
           />
           <Button className="bg-blue-500 p-2">
             <Search />
