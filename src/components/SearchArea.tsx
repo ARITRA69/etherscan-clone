@@ -23,7 +23,7 @@ const SearchArea = (props: Props) => {
         <div className="p-2 bg-white rounded-lg lg:w-1/2 flex justify-between gap-2">
           <Input
             placeholder="Search by Address / Txn Hash / Block"
-            className="w-full"
+            className="w-full bg-white"
           />
           <Button className="bg-blue-500 p-2">
             <Search />

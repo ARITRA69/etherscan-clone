@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/themeToggle/theme-provider";
 import Header from "@/components/Header";
 
 import { Button } from "@/components/ui/button";
+import { EthProvider } from "@/context/eathContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-        </ThemeProvider>
+        <EthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+          </ThemeProvider>
+        </EthProvider>
       </body>
     </html>
   );
