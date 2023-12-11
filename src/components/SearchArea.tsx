@@ -1,12 +1,21 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 
-type Props = {};
+type SearchAreaProps = {
+  onSearch: (searchValue: string) => void;
+};
 
-const SearchArea = (props: Props) => {
+const SearchArea: React.FC<SearchAreaProps> = ({ onSearch }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearch = () => {
+    onSearch(searchValue);
+  };
+
   return (
     <div className="h-[25vh] w-full bg-[#05152e] flex flex-col items-left justify-center relative">
       <Image
@@ -22,10 +31,12 @@ const SearchArea = (props: Props) => {
         </h1>
         <div className="p-2 bg-white dark:bg-black rounded-lg lg:w-1/2 flex justify-between gap-2">
           <Input
-            placeholder="Search by Address / Txn Hash / Block"
+            placeholder="Search by Address"
             className="w-full dark:bg-black"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
-          <Button className="bg-blue-500 p-2">
+          <Button className="bg-blue-500 p-2" onClick={handleSearch}>
             <Search />
           </Button>
         </div>
