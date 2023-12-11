@@ -143,8 +143,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ accountAddress }) => {
                   />
                 </div>
               ) : (
-                currentTransactions.map((transaction: any, index: number) => (
-                  <TableRow key={index}>
+                currentTransactions.map((transaction: any) => (
+                  <TableRow key={transaction.hash}>
                     <TooltipProvider>
                       <TableCell>
                         <Tooltip>
