@@ -3,7 +3,7 @@ import React from "react";
 import { useEthContext } from "@/context/eathContext";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
-import { Globe } from "lucide-react";
+import { Globe, Server } from "lucide-react";
 
 const FeaturedSection = () => {
   const { ethPrice, marketCap } = useEthContext();
@@ -20,9 +20,9 @@ const FeaturedSection = () => {
   };
 
   return (
-    <div className="border bg-white dark:bg-black rounded-lg p-3 flex">
-      <div className="flex w-full">
-        <div className="flex flex-col gap-2">
+    <div className="border bg-white dark:bg-black rounded-lg p-5 flex">
+      <div className="flex items-center justify-between w-full">
+        <div className="flex justify-between gap-5 w-full">
           <div className="flex items-center gap-3">
             <Image
               src="/ethereum_icon.png"
@@ -43,18 +43,18 @@ const FeaturedSection = () => {
               </p>
             </div>
           </div>
-          <Separator />
+          <Separator orientation="vertical" />
           <div className="flex items-center gap-3">
             <Globe className="w-8 h-8" />
             <div className="flex flex-col gap-1 items-start text-opacity-70">
               <p className=" font-light uppercase text-sm">Market Cap</p>
-              <span className="text-opacity-100">${marketCap}</span>
+              <span className="text-opacity-100">
+                ${marketCap.substring(0, 13)}.00
+              </span>
             </div>
           </div>
         </div>
-        <div className="flex flex-col"></div>
       </div>
-      <div className="w-full"></div>
     </div>
   );
 };

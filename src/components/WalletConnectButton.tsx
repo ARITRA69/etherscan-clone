@@ -92,7 +92,6 @@ const WalletConnectButton: React.FC = () => {
         <Button onClick={connectWallet}>Connect Wallet</Button>
       ) : (
         <div>
-          {/* <p>: </p> */}
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Button>Connected</Button>
