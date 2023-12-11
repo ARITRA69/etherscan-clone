@@ -144,8 +144,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ accountAddress }) => {
                 </div>
               ) : (
                 currentTransactions.map((transaction: any, index: number) => (
-                  <TooltipProvider key={index}>
-                    <TableRow>
+                  <TableRow key={index}>
+                    <TooltipProvider>
                       <TableCell>
                         <Tooltip>
                           <TooltipTrigger>
@@ -179,8 +179,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ accountAddress }) => {
                         </Tooltip>
                       </TableCell>
                       <TableCell>{transaction.value}</TableCell>
-                    </TableRow>
-                  </TooltipProvider>
+                    </TooltipProvider>
+                  </TableRow>
                 ))
               )}
             </TableBody>
