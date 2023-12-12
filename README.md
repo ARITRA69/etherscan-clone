@@ -19,7 +19,8 @@ List of features:
 - **API:** https://api.etherscan.io/api, https://api-sepolia.etherscan.io/api
 
 ## Showcase
+*if no images is showing here, wait for a min or check out showcase directory in code
 
-![showcase-1](/showcase/etherscan-1.png)
-![showcase-1](/showcase/etherscan-2.png)
-![showcase-1](/showcase/etherscan-dashboard.png)
+![showcase-1](https://github.com/ARITRA69/etherscan-clone/blob/main/showcase/etherscan-1.png)
+![showcase-2](https://github.com/ARITRA69/etherscan-clone/blob/main/showcase/etherscan-2.png)
+![showcase-3](https://github.com/ARITRA69/etherscan-clone/blob/main/showcase/etherscan-dashboard.png)
