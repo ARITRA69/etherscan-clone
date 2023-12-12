@@ -26,7 +26,6 @@ const Dashboard: React.FC = () => {
   const [balance, setBalance] = useState<number | null>(null);
   const [transactions, setTransactions] = useState<Transaction[] | null>(null);
 
-  // Fetch API key and URL
   const etherscanAPIKey = "11T9KQ5CKNTIJP92D7BIUJNNSS6WS9C823";
   const sepoliaAPI = "https://api-sepolia.etherscan.io/api";
 
@@ -56,6 +55,10 @@ const Dashboard: React.FC = () => {
 
   const weiToEther = (valueInWei: string): string => {
     return (Number(valueInWei) / 1e18).toFixed(5);
+  };
+
+  const weiToGwei = (valueInWei: string): string => {
+    return (Number(valueInWei) / 1e9).toFixed(6);
   };
 
   return (
@@ -106,7 +109,7 @@ const Dashboard: React.FC = () => {
                         : "Loading..."}
                     </TableCell>
                     <TableCell>{weiToEther(transaction.value)}</TableCell>
-                    <TableCell>{transaction.gas}</TableCell>
+                    <TableCell>{weiToGwei(transaction.gas)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
