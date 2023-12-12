@@ -19,3 +19,7 @@ List of features:
 - **API:** https://api.etherscan.io/api, https://api-sepolia.etherscan.io/api
 
 ## Showcase
+
+![showcase-1](/showcase/etherscan-1.png)
+![showcase-1](/showcase/etherscan-2.png)
+![showcase-1](/showcase/etherscan-dashboard.png)
