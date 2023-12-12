@@ -7,11 +7,11 @@ import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { CheckCheck, Copy } from "lucide-react";
+import { CheckCheck, CircleUserRound, Copy, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 interface IProviderOptions {
   [key: string]: {
@@ -94,25 +94,39 @@ const WalletConnectButton: React.FC = () => {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <Button>Connected</Button>
+              <Button className="flex items-center gap-1">
+                <CircleUserRound />
+                <p>Profile</p>
+              </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-[200px] lg:mr-24">
-              <DropdownMenuLabel>Wallet Address</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <div className="flex items-center justify-between">
-                <p className="text-sm">
-                  {walletAddress
-                    ? `${walletAddress.substring(0, 10)}...`
-                    : "Loading..."}
-                </p>
-                <div className="p-2 hover:shadow-lg rounded-lg cursor-pointer">
-                  {isCopied ? (
-                    <CheckCheck size={15} color="green" />
-                  ) : (
-                    <Copy onClick={copyToClipboard} size={15} />
-                  )}
+            <DropdownMenuContent className="w-[200px] lg:mr-24 flex flex-col items-center">
+              <div className="flex items-center justify-between text-xs gap-1">
+                <p>Address</p>
+                <div
+                  className="flex items-center gap-1 rounded-full border px-2 cursor-pointer hover:bg-blue-500 transition-colors duration-300"
+                  onClick={copyToClipboard}
+                >
+                  <p className="opacity-70 hover:text-opacity-100 transition-all duration-300">
+                    {walletAddress
+                      ? `${walletAddress.substring(0, 10)}...`
+                      : "Loading..."}
+                  </p>
+                  <div className="p-2 hover:shadow-lg rounded-lg cursor-pointer">
+                    {isCopied ? (
+                      <CheckCheck size={15} color="green" />
+                    ) : (
+                      <Copy size={15} />
+                    )}
+                  </div>
                 </div>
               </div>
+              <DropdownMenuSeparator />
+              <Link
+                href={`/dashboard/${walletAddress}`}
+                className="flex gap-1 items-center hover:text-blue-500 transition-colors duration-300"
+              >
+                <p>Dashboard</p> <ExternalLink size={18} />
+              </Link>
               <DropdownMenuSeparator />
               <Button onClick={disconnectWallet} className="w-full">
                 Disconnect
